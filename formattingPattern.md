@@ -1,55 +1,64 @@
 
 # Table of Contents
 
--   [Problem](#org0c8b8b0)
--   [Examples](#orgbe73e45)
--   [Suggested solution](#org1feae52)
--   [Considerations](#orgff9a9a0)
+-   [Problem](#orgf611eb7)
+-   [Current examples](#orgf2814be)
+-   [Suggested solution](#orgdb99502)
+-   [Considerations](#orgf3dd310)
+
+ <br>
 
 
-
-<a id="org0c8b8b0"></a>
+<a id="orgf611eb7"></a>
 
 # Problem
 
-Community has expressed need to send ****styled textual information**** via GDSN.
-`FormattedDescription` and `formattingPattern` provide this, but are difficult to implement and use.
+-   Community has expressed need to send ****styled textual information**** via GDSN.
 
-HTML code is being used by some datapools, but:
+-   `FormattedDescription` and `formattingPattern` provide this
 
--   Unstandardized
+-   But these are difficult to implement and use
 
--   Unsafe
+-   HTML code is currently used by some datapools, but:
+    -   Unstandardized
+    -   Unsafe
+    -   Must be escaped/unescaped
+    -   Not adapted to current XML modeling
 
--   Must be escaped/unescaped
+ <br>
 
--   Not adapted to current XML modeling
+---
+
+ <br>
 
 
-<a id="orgbe73e45"></a>
+<a id="orgf2814be"></a>
 
-# Examples
+# Current examples
 
--   Current TIIG framework
+-   TIIG framework
 
-        formattingPattern=“(1,p),(1,em),(56,/em),(141,em),(159,/em),(214,em),(266,/em),(348,em),(362,/em),(446,em),(456,/em),(457,/p),(459,p),(459,em),(512,/em),(556,em),(578,/em),(604,em),(622,/em),(775,em),(784,/em),(806,em),(838,/em),(850,em),(886,/em),(906,em),(926,/em),(957,em),(967,/em),(969,/p) >
+        formattingPattern=“(1,p),(1,em),(56,/em),(141,em),(159,/em),(214,em),(266,/em),(348,em),(362,/em),
+                           (446,em),(456,/em),(457,/p),(459,p),(459,em),(512,/em),(556,em),(578,/em),(604,em),(622,/em),
+                           (775,em),(784,/em),(806,em),(838,/em),(850,em),(886,/em),(906,em),(926,/em),(957,em),(967,/em),(969,/p)">
 
 -   HTML
 
-    <div class="XML" id="org8f58eb4">
-    <p>
-    &lt;stringAVP attributeName=&ldquo;ingredientStatementFormattingPattern&rdquo;&gt;&amp;lt;u&amp;gt;Stuff&amp;lt;/u&amp;gt;&lt;/stringAVP&gt;
-    &lt;stringAVP attributeName=&ldquo;ingredientStatementFormattingPattern&rdquo;&gt;stuff&amp;lt;br&amp;gt;Ingredients: Stuff&lt;/stringAVP&gt;
-    </p>
+        <stringAVP attributeName="ingredientStatementFormattingPattern">&lt;u&gt;Stuff&lt;/u&gt;</stringAVP>
+        <stringAVP attributeName="ingredientStatementFormattingPattern">stuff&lt;br&gt;Ingredients: Stuff</stringAVP>
     
-    </div>
+     <br>
+    
+    ---
+    
+     <br>
 
 
-<a id="org1feae52"></a>
+<a id="orgdb99502"></a>
 
 # Suggested solution
 
--   New datatype that implements [BBCode formatting.](https://www.bbcode.org/how-to-use-bbcode-a-complete-guide.php)
+-   Implement [BBCode formatting](https://www.bbcode.org/how-to-use-bbcode-a-complete-guide.php) or similar [lightweight markup language](https://en.wikipedia.org/wiki/Lightweight_markup_language).
 
     -   Simple
     
@@ -59,11 +68,7 @@ HTML code is being used by some datapools, but:
     
     -   Well-established
     
-    -   Example BBCode
-    
-            [b]4 X Flamin’ Hot Flavour Baked Corn Snack. Ingredients: [/b]Maize, Vegetable Oil, Flamin Hot Flavour [b]Hydrolysed Soya Protein[/b], [i]Fructose[/i], Flavourings ...
-    
-    -   Basic BBCode markup
+    -   Syntax
     
         <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
         
@@ -135,6 +140,12 @@ HTML code is being used by some datapools, but:
         </tr>
         </tbody>
         </table>
+    
+    -   Example BBCode
+    
+            [b]4 X Flamin’ Hot Flavour Baked Corn Snack. Ingredients: [/b]Maize, Vegetable Oil, Flamin Hot Flavour [b]Hydrolysed Soya Protein[/b], [i]Fructose[/i], Flavourings ...
+        
+         <br>
 
 -   Suggested process:
 
@@ -144,16 +155,20 @@ HTML code is being used by some datapools, but:
     
     -   DP forwards TII to recipient
     
-    -   Recipient decides how or whether to handle styled TII
+    -   Recipient decides how or whether to handle styled TII.
+    
+         <br>
 
 
-<a id="orgff9a9a0"></a>
+<a id="orgf3dd310"></a>
 
 # Considerations
 
--   Limit complexity: Agree on allowed subset of BBCode.
+-   Limit complexity: Agree on allowed subset of BBCode?
 
--   Modeling: Replace `formattingPattern`?
+-   Modeling: Replace `formattingPattern`, `sequenceNumber`?
 
--   Validations: For all styled text, ensure recipients get same text unstyled.
+-   Validations: For all styled text, ensure recipients get same text unstyled?
+
+     <br>
 
