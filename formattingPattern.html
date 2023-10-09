@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-10-09 Mon 09:44 -->
+<!-- 2023-10-09 Mon 11:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Formatting Pattern</title>
@@ -193,6 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<style type="text/css">body{ max-width:40%; margin: auto;}</style>
 </head>
 <body>
 <div id="content" class="content">
@@ -201,20 +202,24 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1498a44">Problem</a></li>
-<li><a href="#orga0c9c67">Examples</a></li>
-<li><a href="#org2b5e287">Suggested solution</a></li>
-<li><a href="#orgb64408a">Considerations</a></li>
+<li><a href="#orgbf2372b">Problem</a></li>
+<li><a href="#orge475fb3">Examples</a></li>
+<li><a href="#orgf6f2e05">Suggested solution</a></li>
+<li><a href="#org67466b8">Considerations</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1498a44" class="outline-2">
-<h2 id="org1498a44">Problem</h2>
-<div class="outline-text-2" id="text-org1498a44">
+<p>
+ <br>
+</p>
+<div id="outline-container-orgbf2372b" class="outline-2">
+<h2 id="orgbf2372b">Problem</h2>
+<div class="outline-text-2" id="text-orgbf2372b">
 <ul class="org-ul">
 <li>Community has expressed need to send <b><b>styled textual information</b></b> via GDSN.</li>
 
-<li><code>FormattedDescription</code> and <code>formattingPattern</code> provide this, but are difficult to implement and use.</li>
+<li><code>FormattedDescription</code> and <code>formattingPattern</code> provide this</li>
+<li>But difficult to implement and use.</li>
 
 <li>HTML code is being used by some datapools, but:
 <ul class="org-ul">
@@ -224,51 +229,62 @@
 <li>Not adapted to current XML modeling</li>
 </ul></li>
 </ul>
+
+<p>
+ <br>
+</p>
 <hr />
+<p>
+ <br>
+</p>
 </div>
 </div>
-<div id="outline-container-orga0c9c67" class="outline-2">
-<h2 id="orga0c9c67">Examples</h2>
-<div class="outline-text-2" id="text-orga0c9c67">
+<div id="outline-container-orge475fb3" class="outline-2">
+<h2 id="orge475fb3">Examples</h2>
+<div class="outline-text-2" id="text-orge475fb3">
 </div>
 <ul class="org-ul">
-<li><a id="org9b25aac"></a>Current TIIG framework<br />
-<div class="outline-text-4" id="text-org9b25aac">
+<li><a id="org368f3d1"></a>Current TIIG framework<br />
+<div class="outline-text-4" id="text-org368f3d1">
 <div class="org-src-container">
-<pre class="src src-text">formattingPattern=&#8220;(1,p),(1,em),(56,/em),(141,em),(159,/em),(214,em),(266,/em),(348,em),(362,/em),(446,em),(456,/em),(457,/p),(459,p),(459,em),(512,/em),(556,em),(578,/em),(604,em),(622,/em),(775,em),(784,/em),(806,em),(838,/em),(850,em),(886,/em),(906,em),(926,/em),(957,em),(967,/em),(969,/p) &gt;
+<pre class="src src-text">formattingPattern=&#8220;(1,p),(1,em),(56,/em),(141,em),(159,/em),(214,em),(266,/em),(348,em),(362,/em),
+                   (446,em),(456,/em),(457,/p),(459,p),(459,em),(512,/em),(556,em),(578,/em),(604,em),(622,/em),
+                   (775,em),(784,/em),(806,em),(838,/em),(850,em),(886,/em),(906,em),(926,/em),(957,em),(967,/em),(969,/p)"&gt;
 </pre>
 </div>
 </div>
 </li>
-<li><a id="org124cc90"></a>HTML<br />
-<div class="outline-text-4" id="text-org124cc90">
-<div class="XML" id="orgfd88fb8">
-<p>
-&lt;stringAVP attributeName=&ldquo;ingredientStatementFormattingPattern&rdquo;&gt;&amp;lt;u&amp;gt;Stuff&amp;lt;/u&amp;gt;&lt;/stringAVP&gt;
-&lt;stringAVP attributeName=&ldquo;ingredientStatementFormattingPattern&rdquo;&gt;stuff&amp;lt;br&amp;gt;Ingredients: Stuff&lt;/stringAVP&gt;
-</p>
-
+<li><a id="org5b8fee4"></a>HTML<br />
+<div class="outline-text-4" id="text-org5b8fee4">
+<div class="org-src-container">
+<pre class="src src-xml">&lt;<span style="color: #82aaff;">stringAVP</span> <span style="color: #ffcb6b;">attributeName</span>=<span style="color: #c3e88d;">"ingredientStatementFormattingPattern"</span>&gt;<span style="color: #F78C6C;">&amp;</span><span style="color: #F78C6C;">lt</span><span style="color: #F78C6C;">;</span>u<span style="color: #F78C6C;">&amp;</span><span style="color: #F78C6C;">gt</span><span style="color: #F78C6C;">;</span>Stuff<span style="color: #F78C6C;">&amp;</span><span style="color: #F78C6C;">lt</span><span style="color: #F78C6C;">;</span>/u<span style="color: #F78C6C;">&amp;</span><span style="color: #F78C6C;">gt</span><span style="color: #F78C6C;">;</span>&lt;/<span style="color: #82aaff;">stringAVP</span>&gt;
+&lt;<span style="color: #82aaff;">stringAVP</span> <span style="color: #ffcb6b;">attributeName</span>=<span style="color: #c3e88d;">"ingredientStatementFormattingPattern"</span>&gt;stuff<span style="color: #F78C6C;">&amp;</span><span style="color: #F78C6C;">lt</span><span style="color: #F78C6C;">;</span>br<span style="color: #F78C6C;">&amp;</span><span style="color: #F78C6C;">gt</span><span style="color: #F78C6C;">;</span>Ingredients: Stuff&lt;/<span style="color: #82aaff;">stringAVP</span>&gt;
+</pre>
 </div>
+
+<p>
+ <br>
+</p>
 </div>
 </li>
 </ul>
 </div>
-<div id="outline-container-org2b5e287" class="outline-2">
-<h2 id="org2b5e287">Suggested solution</h2>
-<div class="outline-text-2" id="text-org2b5e287">
+<div id="outline-container-orgf6f2e05" class="outline-2">
+<h2 id="orgf6f2e05">Suggested solution</h2>
+<div class="outline-text-2" id="text-orgf6f2e05">
 </div>
 <ul class="org-ul">
-<li><a id="orgde420fb"></a>Implement <a href="https://www.bbcode.org/how-to-use-bbcode-a-complete-guide.php">BBCode formatting.</a><br />
+<li><a id="orgcd0a0bc"></a>Implement <a href="https://www.bbcode.org/how-to-use-bbcode-a-complete-guide.php">BBCode formatting.</a><br />
 <ul class="org-ul">
-<li><a id="org9053749"></a>Simple<br /></li>
-<li><a id="orgf12bd35"></a>Safe<br /></li>
-<li><a id="org0f12d44"></a>Flexible<br /></li>
-<li><a id="org88eef58"></a>Well-established<br /></li>
+<li><a id="org74ff552"></a>Simple<br /></li>
+<li><a id="org846b646"></a>Safe<br /></li>
+<li><a id="orge0a85b0"></a>Flexible<br /></li>
+<li><a id="orgb747d2f"></a>Well-established<br /></li>
 </ul>
 
 
-<li><a id="orgbeb5360"></a>Syntax<br />
-<div class="outline-text-4" id="text-orgbeb5360">
+<li><a id="org958db03"></a>Syntax<br />
+<div class="outline-text-4" id="text-org958db03">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -332,43 +348,57 @@
 </table>
 </div>
 </li>
-<li><a id="org7bcf4b3"></a>Example BBCode<br />
-<div class="outline-text-4" id="text-org7bcf4b3">
+<li><a id="org9c8b9a2"></a>Example BBCode<br />
+<div class="outline-text-4" id="text-org9c8b9a2">
 <div class="org-src-container">
 <pre class="src src-text">[b]4 X Flamin&#8217; Hot Flavour Baked Corn Snack. Ingredients: [/b]Maize, Vegetable Oil, Flamin Hot Flavour [b]Hydrolysed Soya Protein[/b], [i]Fructose[/i], Flavourings ...
 </pre>
 </div>
 
-<hr />
+<p>
+ <br>
+</p>
 </div>
 </li>
 </ul>
 </li>
-<li><a id="orgbf8e8fd"></a>Suggested process:<br />
+<li><a id="org289d9cd"></a>Suggested process:<br />
 <ul class="org-ul">
-<li><a id="org3e4c64f"></a>Service providers implement rich-text editors in their GUIs, or &#x2026;<br /></li>
-<li><a id="org5e259de"></a>End users fill in TII, by hand.<br /></li>
-<li><a id="org7ed7c57"></a>DP forwards TII to recipient<br /></li>
-<li><a id="orgfe6da53"></a>Recipient decides how or whether to handle styled TII<br /></li>
+<li><a id="orgee9fed2"></a>Service providers implement rich-text editors in their GUIs, or &#x2026;<br /></li>
+<li><a id="org34b511a"></a>End users fill in TII, by hand.<br /></li>
+<li><a id="org5b2a53b"></a>DP forwards TII to recipient<br /></li>
+<li><a id="org95e2989"></a>Recipient decides how or whether to handle styled TII<br />
+<div class="outline-text-6" id="text-org95e2989">
+<p>
+ <br>
+</p>
+</div>
+</li>
 </ul>
 </li>
 </ul>
 </div>
-<div id="outline-container-orgb64408a" class="outline-2">
-<h2 id="orgb64408a">Considerations</h2>
-<div class="outline-text-2" id="text-orgb64408a">
+<div id="outline-container-org67466b8" class="outline-2">
+<h2 id="org67466b8">Considerations</h2>
+<div class="outline-text-2" id="text-org67466b8">
 </div>
 <ul class="org-ul">
-<li><a id="org37bf38e"></a>Limit complexity: Agree on allowed subset of BBCode.<br /></li>
-<li><a id="org04e1c4e"></a>Modeling: Replace <code>formattingPattern</code>, <code>sequenceNumber</code>?<br /></li>
-<li><a id="org95fb2b1"></a>Validations: For all styled text, ensure recipients get same text unstyled.<br /></li>
+<li><a id="org64740bb"></a>Limit complexity: Agree on allowed subset of BBCode.<br /></li>
+<li><a id="orge840999"></a>Modeling: Replace <code>formattingPattern</code>, <code>sequenceNumber</code>?<br /></li>
+<li><a id="org485fffc"></a>Validations: For all styled text, ensure recipients get same text unstyled.<br />
+<div class="outline-text-6" id="text-org485fffc">
+<p>
+ <br>
+</p>
+</div>
+</li>
 </ul>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2023-10-05 Thu 00:00</p>
 <p class="author">Author: Nathan Stonewall</p>
-<p class="date">Created: 2023-10-09 Mon 09:44</p>
+<p class="date">Created: 2023-10-09 Mon 11:41</p>
 </div>
 </body>
 </html>
