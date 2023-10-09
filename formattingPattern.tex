@@ -1,0 +1,128 @@
+% Created 2023-10-09 Mon 09:46
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Nathan Stonewall}
+\date{\textit{<2023-10-05 Thu>}}
+\title{Formatting Pattern}
+\hypersetup{
+ pdfauthor={Nathan Stonewall},
+ pdftitle={Formatting Pattern},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 28.2 (Org mode 9.7)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section*{Problem}
+\label{sec:orgfd4531d}
+\begin{itemize}
+\item Community has expressed need to send \textbf{\textbf{styled textual information}} via GDSN.
+
+\item \texttt{FormattedDescription} and \texttt{formattingPattern} provide this, but are difficult to implement and use.
+
+\item HTML code is being used by some datapools, but:
+\begin{itemize}
+\item Unstandardized
+\item Unsafe
+\item Must be escaped/unescaped
+\item Not adapted to current XML modeling
+\end{itemize}
+\end{itemize}
+
+\noindent\rule{\textwidth}{0.5pt}
+\section*{Examples}
+\label{sec:orga202625}
+\begin{itemize}
+\item Current TIIG framework
+\label{sec:orgd572f51}
+\begin{verbatim}
+formattingPattern=“(1,p),(1,em),(56,/em),(141,em),(159,/em),(214,em),(266,/em),(348,em),(362,/em),(446,em),(456,/em),(457,/p),(459,p),(459,em),(512,/em),(556,em),(578,/em),(604,em),(622,/em),(775,em),(784,/em),(806,em),(838,/em),(850,em),(886,/em),(906,em),(926,/em),(957,em),(967,/em),(969,/p) >
+\end{verbatim}
+\item HTML
+\label{sec:orgdae6b0d}
+\begin{XML}
+<stringAVP attributeName=``ingredientStatementFormattingPattern''>\&lt;u\&gt;Stuff\&lt;/u\&gt;</stringAVP>
+<stringAVP attributeName=``ingredientStatementFormattingPattern''>stuff\&lt;br\&gt;Ingredients: Stuff</stringAVP>
+\end{XML}
+\end{itemize}
+\section*{Suggested solution}
+\label{sec:org1a4acf1}
+\begin{itemize}
+\item Implement \href{https://www.bbcode.org/how-to-use-bbcode-a-complete-guide.php}{BBCode formatting.}
+\label{sec:orgeadcbb1}
+\begin{itemize}
+\item Simple
+\label{sec:orgb3f82a5}
+\item Safe
+\label{sec:org21e4e2e}
+\item Flexible
+\label{sec:org9551041}
+\item Well-established
+\label{sec:orgc46db3c}
+\end{itemize}
+
+
+\item Syntax
+\label{sec:org52b3c5e}
+\begin{center}
+\begin{tabular}{ll}
+BBCode & Effect\\[0pt]
+\hline
+[b] & Bold\\[0pt]
+[i] & Italic\\[0pt]
+[u] & Underline\\[0pt]
+[br] & Line break\\[0pt]
+[url] & Insert link\\[0pt]
+[color=color] & Change text color to \{color\}\\[0pt]
+[align=alignment] & Align text e.g. to center\\[0pt]
+[list] & Make list\\[0pt]
+[*] & Add list item\\[0pt]
+\hline
+\end{tabular}
+\end{center}
+\item Example BBCode
+\label{sec:org196952a}
+\begin{verbatim}
+[b]4 X Flamin’ Hot Flavour Baked Corn Snack. Ingredients: [/b]Maize, Vegetable Oil, Flamin Hot Flavour [b]Hydrolysed Soya Protein[/b], [i]Fructose[/i], Flavourings ...
+\end{verbatim}
+
+\noindent\rule{\textwidth}{0.5pt}
+\end{itemize}
+\item Suggested process:
+\label{sec:org3252411}
+\begin{itemize}
+\item Service providers implement rich-text editors in their GUIs, or \ldots{}
+\label{sec:orgb6de7d8}
+\item End users fill in TII, by hand.
+\label{sec:orgd0fc418}
+\item DP forwards TII to recipient
+\label{sec:orgbb9e13f}
+\item Recipient decides how or whether to handle styled TII
+\label{sec:org088d1b1}
+\end{itemize}
+\end{itemize}
+\section*{Considerations}
+\label{sec:org64a958e}
+\begin{itemize}
+\item Limit complexity: Agree on allowed subset of BBCode.
+\label{sec:org5423ada}
+\item Modeling: Replace \texttt{formattingPattern}, \texttt{sequenceNumber}?
+\label{sec:org770ca66}
+\item Validations: For all styled text, ensure recipients get same text unstyled.
+\label{sec:org13f18d4}
+\end{itemize}
+\end{document}
