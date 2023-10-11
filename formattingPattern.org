@@ -2,7 +2,7 @@
 #+author: Nathan Stonewall
 #+email: nathan.stonewall@gs1.se
 #+date: <2023-10-05 Thu>
-#+OPTIONS: H:1 num:nil \n author:Nathan Stonewall date:2023-09-15
+#+OPTIONS: H:1 num:nil \n author:Nathan Stonewall date:2023-09-15 d:(not "HORSE")
 # #+TOC: headlines 1
 #+MACRO: NEWLINE @@latex:\\@@ @@html:<br>@@
 #+HTML_HEAD: <style type="text/css">body{ max-width:40%; margin: auto;} .custom-list { margin-bottom: 50px; }</style>
@@ -18,6 +18,15 @@
 - HTML code currently used by some datapools, but:
     - Unstandardized
     - Unsafe
+
+    :HORSE:
+    HTML can be used to run JavaScript, leading to cross-site scripting.
+
+    Cross-site scripting involves an attacker injecting a script into a web application's output
+    and executing it from a user's browser.
+
+    User-input HTML makes websites more susceptible to hacking.
+    :END:
     - Must be escaped/unescaped
     - Not adapted to current XML modeling
 
@@ -48,12 +57,24 @@ formattingPattern=“(1,p),(1,em),(56,/em),(141,em),(159,/em),
 
 * Suggested solution
 
-** Implement [[https://www.bbcode.org/how-to-use-bbcode-a-complete-guide.php][BBCode formatting]] or similar [[https://en.wikipedia.org/wiki/Lightweight_markup_language][lightweight markup language]].
+** Implement [[https://en.wikipedia.org/wiki/BBCode][BBCode formatting]] or similar [[https://en.wikipedia.org/wiki/Lightweight_markup_language][lightweight markup language]].
+:HORSE:
+BBCode acts as a buffer for HTML.
+So while you can do hundreds of different things with HTML, BBCode limits you to a few basic operations.
+:END:
+
 ** Advantages
 **** Simple
+:HORSE:
+HTML is large and complex; BBCode can be learned in a few minutes.
+:END:
 **** Safe
 **** Flexible
 **** Well-established
+**** Simple to implement
+:HORSE:
+Parsers available for any imaginable tooling.
+:END:
 
 
 *** Syntax
