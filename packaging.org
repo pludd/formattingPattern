@@ -99,6 +99,7 @@
 ** Frågor till Ica:
 *** Spelar vikten för de individuella ramaterialen roll för Ica?
 *** Är det ens möjligt att avgöra vad respektive material väger?
+
 *** Logik: samma materialCode, samma vikt -> läs in vikt endast en gang
 
 *** Det gar att skicka en och samma material med >1 ramaterial

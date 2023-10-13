@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-10-13 Fri 15:51 -->
+<!-- 2023-10-13 Fri 15:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Packaging material</title>
@@ -201,13 +201,13 @@
 <p>
  <br>
 </p>
-<div id="outline-container-orgf412246" class="outline-2">
-<h2 id="orgf412246">1 PackagingMaterial parent class, 2 child PackagingRawMaterialInformation classes</h2>
-<div class="outline-text-2" id="text-orgf412246">
+<div id="outline-container-org43a0cc9" class="outline-2">
+<h2 id="org43a0cc9">1 PackagingMaterial parent class, 2 child PackagingRawMaterialInformation classes</h2>
+<div class="outline-text-2" id="text-org43a0cc9">
 </div>
 <ul class="org-ul">
-<li><a id="org9ed88f6"></a>Example<br />
-<div class="outline-text-4" id="text-org9ed88f6">
+<li><a id="orgaa220ce"></a>Example<br />
+<div class="outline-text-4" id="text-orgaa220ce">
 <div class="org-src-container">
 <pre class="src src-xml">    &lt;<span style="color: #82aaff;">packagingMaterialTypeCode</span>&gt;POLYMER_PP&lt;/<span style="color: #82aaff;">packagingMaterialTypeCode</span>&gt;
     &lt;<span style="color: #82aaff;">packagingMaterialCompositionQuantity</span>&gt;10&lt;/&gt;
@@ -224,8 +224,8 @@
 </div>
 </div>
 </li>
-<li><a id="org5fd5213"></a>Effect: Not possible to provide <code>packagingMaterialColourCodeReference</code> per <code>packagingRawMaterialCode</code>.<br />
-<div class="outline-text-4" id="text-org5fd5213">
+<li><a id="org9355e2f"></a>Effect: Not possible to provide <code>packagingMaterialColourCodeReference</code> per <code>packagingRawMaterialCode</code>.<br />
+<div class="outline-text-4" id="text-org9355e2f">
 <p>
  <br>
 </p>
@@ -233,13 +233,13 @@
 </li>
 </ul>
 </div>
-<div id="outline-container-org942b4b1" class="outline-2">
-<h2 id="org942b4b1">2 PackagingMaterial parent class, each with respective PackagingRawMaterialInformation child class</h2>
-<div class="outline-text-2" id="text-org942b4b1">
+<div id="outline-container-orga04e2fc" class="outline-2">
+<h2 id="orga04e2fc">2 PackagingMaterial parent class, each with respective PackagingRawMaterialInformation child class</h2>
+<div class="outline-text-2" id="text-orga04e2fc">
 </div>
 <ul class="org-ul">
-<li><a id="orgaa6aa9d"></a>Example<br />
-<div class="outline-text-4" id="text-orgaa6aa9d">
+<li><a id="org58709dd"></a>Example<br />
+<div class="outline-text-4" id="text-org58709dd">
 <div class="org-src-container">
 <pre class="src src-xml">    &lt;<span style="color: #82aaff;">packagingMaterialTypeCode</span>&gt;POLYMER_PP&lt;/<span style="color: #82aaff;">packagingMaterialTypeCode</span>&gt;
     &lt;<span style="color: #82aaff;">packagingMaterialCompositionQuantity</span>&gt;10&lt;/&gt;
@@ -263,12 +263,12 @@
 </div>
 </div>
 </li>
-<li><a id="orgc057971"></a>Effects:<br />
+<li><a id="org7ef04bf"></a>Effects:<br />
 <ul class="org-ul">
-<li><a id="org89d2f35"></a>Single material is misrepresented as two separate materials.<br /></li>
-<li><a id="org61c5226"></a>Real weight is misrepresented (and must be, since <code>packagingMaterialCompositionQuantity</code> is mandatory).<br /></li>
-<li><a id="orge4f7864"></a>Redundant repetition of e.g. weight, labelling information.<br />
-<div class="outline-text-6" id="text-orge4f7864">
+<li><a id="org474a492"></a>Single material is misrepresented as two separate materials.<br /></li>
+<li><a id="orgadfc417"></a>Real weight is misrepresented (and must be, since <code>packagingMaterialCompositionQuantity</code> is mandatory).<br /></li>
+<li><a id="org21c85e7"></a>Redundant repetition of e.g. weight, labelling information.<br />
+<div class="outline-text-6" id="text-org21c85e7">
 <p>
  <br>
 </p>
@@ -278,13 +278,13 @@
 </li>
 </ul>
 </div>
-<div id="outline-container-org485d487" class="outline-2">
-<h2 id="org485d487">1 PackagingMaterial parent class, 2 child CompositeMaterialDetail classes, 2 child PackagingRawMaterialInformation classes</h2>
-<div class="outline-text-2" id="text-org485d487">
+<div id="outline-container-org1c5de2f" class="outline-2">
+<h2 id="org1c5de2f">1 PackagingMaterial parent class, 2 child CompositeMaterialDetail classes, 2 child PackagingRawMaterialInformation classes</h2>
+<div class="outline-text-2" id="text-org1c5de2f">
 </div>
 <ul class="org-ul">
-<li><a id="org71e2e09"></a>Example<br />
-<div class="outline-text-4" id="text-org71e2e09">
+<li><a id="org4034f55"></a>Example<br />
+<div class="outline-text-4" id="text-org4034f55">
 <div class="org-src-container">
 <pre class="src src-xml">  &lt;<span style="color: #82aaff;">packagingMaterialTypeCode</span>&gt;COMPOSITE&lt;/&gt;
   &lt;<span style="color: #82aaff;">packagingLabellingTypeCode</span>&gt;Label on packaging&lt;/&gt;
@@ -311,29 +311,29 @@
 </div>
 </div>
 </li>
-<li><a id="org7bba3d1"></a>Effect:<br />
+<li><a id="org5123b0c"></a>Effect:<br />
 <ul class="org-ul">
-<li><a id="org09f0e98"></a>The most expressive solution, but &#x2026;<br /></li>
-<li><a id="org34260a3"></a><code>CompositeMaterialDetail</code> class will need to be brought into Swedish TII.<br /></li>
-<li><a id="org97e2f0d"></a>Same material must be populated for each composite material (which would allow a system to detect that it is one and the same material).<br /></li>
-<li><a id="org4aa8bbf"></a>Weight must be filled in for each composite material due to VR 1025 (which we could opt out of).<br /></li>
+<li><a id="org4cf01c9"></a>The most expressive solution, but &#x2026;<br /></li>
+<li><a id="orge049f89"></a><code>CompositeMaterialDetail</code> class will need to be brought into Swedish TII.<br /></li>
+<li><a id="orge9dff6e"></a>Same material must be populated for each composite material (which would allow a system to detect that it is one and the same material).<br /></li>
+<li><a id="org4d2f8d5"></a>Weight must be filled in for each composite material due to VR 1025 (which we could opt out of).<br /></li>
 </ul>
 </li>
 </ul>
-<li><a id="org6473f3c"></a>Frågor till Ica:<br />
+<li><a id="org5f2088c"></a>Frågor till Ica:<br />
 <ul class="org-ul">
-<li><a id="orgf70bd93"></a>Spelar vikten för de individuella ramaterialen roll för Ica?<br /></li>
-<li><a id="orgb2e32c6"></a>Är det ens möjligt att avgöra vad respektive material väger?<br /></li>
+<li><a id="org2e8eb9c"></a>Spelar vikten för de individuella ramaterialen roll för Ica?<br /></li>
+<li><a id="org3f28b2c"></a>Är det ens möjligt att avgöra vad respektive material väger?<br /></li>
 
-<li><a id="orgb6f412b"></a>Logik: samma materialCode, samma vikt -&gt; läs in vikt endast en gang<br /></li>
+<li><a id="org53bbad5"></a>Logik: samma materialCode, samma vikt -&gt; läs in vikt endast en gang<br /></li>
 
-<li><a id="org2cd9869"></a>Det gar att skicka en och samma material med &gt;1 ramaterial<br /></li>
-<li><a id="org5aafef2"></a>Men det gar inte att skicka ovan med tva olika farger, utan att använda klassen compositeMaterial.<br /></li>
-<li><a id="org55cc678"></a>Kan de vara utan uppgift om färg<br /></li>
+<li><a id="org6741185"></a>Det gar att skicka en och samma material med &gt;1 ramaterial<br /></li>
+<li><a id="orgc8b98bf"></a>Men det gar inte att skicka ovan med tva olika farger, utan att använda klassen compositeMaterial.<br /></li>
+<li><a id="orgcbc554f"></a>Kan de vara utan uppgift om färg<br /></li>
 
-<li><a id="orge4b661f"></a>I princip: Sa länge Ica och leverantören kan tolka varandra rätt, och ingen uppgift saknas, sa behöver ingen göra nagonting.<br /></li>
+<li><a id="orge077108"></a>I princip: Sa länge Ica och leverantören kan tolka varandra rätt, och ingen uppgift saknas, sa behöver ingen göra nagonting.<br /></li>
 
-<li><a id="orgbc8b3cc"></a>Men svart att rekommendera nagot utan att veta hur de slutliga kraven kommer att se ut.<br /></li>
+<li><a id="org61ab012"></a>Men svart att rekommendera nagot utan att veta hur de slutliga kraven kommer att se ut.<br /></li>
 </ul>
 </li>
 </ul>
@@ -342,7 +342,7 @@
 <div id="postamble" class="status">
 <p class="date">Date: 2023-10-13 Fri 00:00</p>
 <p class="author">Author: Nathan Stonewall</p>
-<p class="date">Created: 2023-10-13 Fri 15:51</p>
+<p class="date">Created: 2023-10-13 Fri 15:53</p>
 </div>
 </body>
 </html>
