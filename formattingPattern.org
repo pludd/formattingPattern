@@ -1,7 +1,7 @@
-#+title: Formatting Pattern
+#+title: Packaging material
 #+author: Nathan Stonewall
 #+email: nathan.stonewall@gs1.se
-#+date: <2023-10-05 Thu>
+#+date: <2023-10-13 Fri>
 #+OPTIONS: H:1 num:nil \n author:Nathan Stonewall date:2023-09-15 d:(not "HORSE")
 # #+TOC: headlines 1
 #+MACRO: NEWLINE @@latex:\\@@ @@html:<br>@@
