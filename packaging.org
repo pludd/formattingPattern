@@ -9,7 +9,7 @@
 
 {{{NEWLINE}}}
 
-* Option A: 1 PackagingMaterial parent class, 2 child PackagingRawMaterialInformation classes
+* Option A: 1 PackagingMaterial parent class, 1 child PackagingRawMaterialInformation class
 *** Example
 #+BEGIN_SRC xml
     <packagingMaterialTypeCode>POLYMER_PP</packagingMaterialTypeCode>
@@ -27,8 +27,7 @@
 *** Effects:
 ***** Possible to send one ~packagingMaterialTypeCode~ with >1 ~packagingRawMaterialCode~ .
 ***** Not possible to send above with two different colors.
-***** In other words: not possible to provide ~packagingMaterialColourCodeReference~ per ~packagingRawMaterialCode~.
-***** One ~packagingMaterialTypeCode~ instance = one ~packagingMaterialColourCodeReference~ instance.
+***** In other words: not possible to provide ~packagingMaterialColourCodeReference~ per ~packagingRawMaterialCode~. One ~packagingMaterialTypeCode~ instance = one ~packagingMaterialColourCodeReference~ instance.
 
 {{{NEWLINE}}}
 
