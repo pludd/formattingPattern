@@ -32,7 +32,7 @@
 {{{NEWLINE}}}
 
 
-* Option B: 2 PackagingMaterial parent classes, each with respective PackagingRawMaterialInformation child class
+* Option B: 2 PackagingMaterial parent classes, each with respective ~PackagingRawMaterialInformation~ child class
 *** Example
 #+BEGIN_SRC xml
     <packagingMaterialTypeCode>POLYMER_PP</packagingMaterialTypeCode>
@@ -64,7 +64,7 @@
 
 {{{NEWLINE}}}
 
-* Option C: 1 PackagingMaterial parent class, 2 child CompositeMaterialDetail classes, 2 child PackagingRawMaterialInformation classes
+* Option C: 1 PackagingMaterial parent class, 2 child CompositeMaterialDetail classes, each with respective child ~PackagingRawMaterialInformation~ class
 *** Example
 
 #+BEGIN_SRC xml
