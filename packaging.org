@@ -54,8 +54,8 @@
 #+END_SRC
 
 *** Effects:
-***** Representing a single material as two separate materials
-***** Real weight is misrepresented (and must be, since ~packagingMaterialCompositionQuantity~ is mandatory)
+***** Single material is misrepresented as two separate materials.
+***** Real weight is misrepresented (and must be, since ~packagingMaterialCompositionQuantity~ is mandatory).
 ***** Redundant repetition of e.g. weight, labelling information.
 
 
@@ -96,6 +96,7 @@
 
 
 
+** Frågor till Ica:
 *** Spelar vikten för de individuella ramaterialen roll för Ica?
 *** Är det ens möjligt att avgöra vad respektive material väger?
 *** Logik: samma materialCode, samma vikt -> läs in vikt endast en gang
