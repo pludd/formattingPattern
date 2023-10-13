@@ -9,12 +9,12 @@
 
 {{{NEWLINE}}}
 
-* 1 PackagingMaterial parent class, 2 child PackagingRawMaterialInformation classes
+* A: 1 PackagingMaterial parent class, 2 child PackagingRawMaterialInformation classes
 *** Example
 #+BEGIN_SRC xml
     <packagingMaterialTypeCode>POLYMER_PP</packagingMaterialTypeCode>
     <packagingMaterialCompositionQuantity>10</>
-    <packagingMaterialcolourCodeReference>BLK</>
+    <packagingMaterialColourCodeReference>BLK</>
     <packagingLabellingTypeCode>Label on package</>
     <packagingLabellingCoveragePercentage>60</>
     <PackagingRawMaterialInformation>
@@ -24,13 +24,16 @@
       <packagingRawMaterialPercentage>60</>
     </PackagingRawMaterialInformation>
 #+END_SRC
-*** Effect: Not possible to provide ~packagingMaterialColourCodeReference~ per ~packagingRawMaterialCode~.
-
+*** Effects:
+***** Possible to send one ~packagingMaterialTypeCode~ with >1 ~packagingRawMaterialCode~ .
+***** Not possible to send above with two different colors.
+***** In other words: not possible to provide ~packagingMaterialColourCodeReference~ per ~packagingRawMaterialCode~.
+***** One ~packagingMaterialTypeCode~ instance = one ~packagingMaterialColourCodeReference~ instance.
 
 {{{NEWLINE}}}
 
 
-* 2 PackagingMaterial parent class, each with respective PackagingRawMaterialInformation child class
+* B: 2 PackagingMaterial parent classes, each with respective PackagingRawMaterialInformation child class
 *** Example
 #+BEGIN_SRC xml
     <packagingMaterialTypeCode>POLYMER_PP</packagingMaterialTypeCode>
@@ -55,23 +58,25 @@
 
 *** Effects:
 ***** Single material is misrepresented as two separate materials.
-***** Real weight is misrepresented (and must be, since ~packagingMaterialCompositionQuantity~ is mandatory).
+***** Real weight is misrepresented as two weights (and must be, since ~packagingMaterialCompositionQuantity~ is mandatory).
 ***** Redundant repetition of e.g. weight, labelling information.
+****** This could alert a system to the fact that they refer to the same material.
 
 
 {{{NEWLINE}}}
 
-* 1 PackagingMaterial parent class, 2 child CompositeMaterialDetail classes, 2 child PackagingRawMaterialInformation classes
+* C: 1 PackagingMaterial parent class, 2 child CompositeMaterialDetail classes, 2 child PackagingRawMaterialInformation classes
 *** Example
 
 #+BEGIN_SRC xml
   <packagingMaterialTypeCode>COMPOSITE</>
+  <packagingMaterialCompositionQuantity>10</>
   <packagingLabellingTypeCode>Label on packaging</>
   <packagingLabellingCoveragePercentage>60</>
   <CompositeMaterialDetail>
     <packagingMaterialTypeCode>POLYMER_PP</>
-    <CompositionQuantity>10</>
-    <ColorCodeReference>BLK</>
+    <!-- <packagingMaterialCompositionQuantity>10</> -->
+    <packagingMaterialColorCodeReference>BLK</>
       <PackagingRawMaterialInformation>
       <packagingRawMaterialCode>Crude oil</>
       <packagingRawMaterialPercentage>40</>
@@ -79,7 +84,7 @@
   </CompositeMaterialDetail>
   <CompositeMaterialDetail>
     <packagingMaterialTypeCode>POLYMER_PP</>
-    <packagingMaterialCompositionQuantity>10</>
+    <!-- <packagingMaterialCompositionQuantity>10</> -->
     <packagingMaterialColorCodeReference>CLEAR</>
       <PackagingRawMaterialInformation>
       <packagingRawMaterialCode>Recycled</>
@@ -91,21 +96,21 @@
 *** Effect:
 ***** The most expressive solution, but ...
 ***** ~CompositeMaterialDetail~ class will need to be brought into Swedish TII.
-***** Same material must be populated for each composite material (which would allow a system to detect that it is one and the same material).
-***** Weight must be filled in for each composite material due to VR 1025 (which we could opt out of).
+***** Same ~material~ must be populated for each composite material
+****** ... allowing a system to e.g. detect that it is one and the same material.
+***** Weight need not be filled in for each composite material since VR 1025 does not apply.
+***** If ~Packaging~ module is expected to be further developed, it may make sense to start making fuller use of it.
 
 
 
-** Frågor till Ica:
-*** Spelar vikten för de individuella ramaterialen roll för Ica?
-*** Är det ens möjligt att avgöra vad respektive material väger?
+* General comments
+*** To the extent possible, build your TII registration UIs as close to XML schema as possible.
+*** If schema does not currently allow you to express what you want to express, either:
+a. It can be modified (requires broad agreement in all of GDSN)
+b. Or it can be worked around in your own system(s) by:
+    - Agreeing with your users on how you want to do things
+    - And applying the appropriate logic in your systems.
 
-*** Logik: samma materialCode, samma vikt -> läs in vikt endast en gang
+*** In principle: As long as Ica and suppler understand one another, no one necessarily needs to do anything.
 
-*** Det gar att skicka en och samma material med >1 ramaterial
-*** Men det gar inte att skicka ovan med tva olika farger, utan att använda klassen compositeMaterial.
-*** Kan de vara utan uppgift om färg
-
-*** I princip: Sa länge Ica och leverantören kan tolka varandra rätt, och ingen uppgift saknas, sa behöver ingen göra nagonting.
-
-*** Men svart att rekommendera nagot utan att veta hur de slutliga kraven kommer att se ut.
+*** But difficult to make recommendations without knowing final overall requirements.

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-10-13 Fri 15:53 -->
+<!-- 2023-10-13 Fri 17:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Packaging material</title>
@@ -201,17 +201,17 @@
 <p>
  <br>
 </p>
-<div id="outline-container-org43a0cc9" class="outline-2">
-<h2 id="org43a0cc9">1 PackagingMaterial parent class, 2 child PackagingRawMaterialInformation classes</h2>
-<div class="outline-text-2" id="text-org43a0cc9">
+<div id="outline-container-org232553a" class="outline-2">
+<h2 id="org232553a">A: 1 PackagingMaterial parent class, 2 child PackagingRawMaterialInformation classes</h2>
+<div class="outline-text-2" id="text-org232553a">
 </div>
 <ul class="org-ul">
-<li><a id="orgaa220ce"></a>Example<br />
-<div class="outline-text-4" id="text-orgaa220ce">
+<li><a id="org0fb1db2"></a>Example<br />
+<div class="outline-text-4" id="text-org0fb1db2">
 <div class="org-src-container">
 <pre class="src src-xml">    &lt;<span style="color: #82aaff;">packagingMaterialTypeCode</span>&gt;POLYMER_PP&lt;/<span style="color: #82aaff;">packagingMaterialTypeCode</span>&gt;
     &lt;<span style="color: #82aaff;">packagingMaterialCompositionQuantity</span>&gt;10&lt;/&gt;
-    &lt;<span style="color: #82aaff;">packagingMaterialcolourCodeReference</span>&gt;BLK&lt;/&gt;
+    &lt;<span style="color: #82aaff;">packagingMaterialColourCodeReference</span>&gt;BLK&lt;/&gt;
     &lt;<span style="color: #82aaff;">packagingLabellingTypeCode</span>&gt;Label on package&lt;/&gt;
     &lt;<span style="color: #82aaff;">packagingLabellingCoveragePercentage</span>&gt;60&lt;/&gt;
     &lt;<span style="color: #82aaff;">PackagingRawMaterialInformation</span>&gt;
@@ -224,22 +224,29 @@
 </div>
 </div>
 </li>
-<li><a id="org9355e2f"></a>Effect: Not possible to provide <code>packagingMaterialColourCodeReference</code> per <code>packagingRawMaterialCode</code>.<br />
-<div class="outline-text-4" id="text-org9355e2f">
+<li><a id="org30525dc"></a>Effects:<br />
+<ul class="org-ul">
+<li><a id="orgb950c39"></a>Possible to send one <code>packagingMaterialTypeCode</code> with &gt;1 <code>packagingRawMaterialCode</code> .<br /></li>
+<li><a id="org515b594"></a>Not possible to send above with two different colors.<br /></li>
+<li><a id="orgc7db6c8"></a>In other words: not possible to provide <code>packagingMaterialColourCodeReference</code> per <code>packagingRawMaterialCode</code>.<br /></li>
+<li><a id="orgd63c5e8"></a>One <code>packagingMaterialTypeCode</code> instance = one <code>packagingMaterialColourCodeReference</code> instance.<br />
+<div class="outline-text-6" id="text-orgd63c5e8">
 <p>
  <br>
 </p>
 </div>
 </li>
 </ul>
+</li>
+</ul>
 </div>
-<div id="outline-container-orga04e2fc" class="outline-2">
-<h2 id="orga04e2fc">2 PackagingMaterial parent class, each with respective PackagingRawMaterialInformation child class</h2>
-<div class="outline-text-2" id="text-orga04e2fc">
+<div id="outline-container-org07b2e11" class="outline-2">
+<h2 id="org07b2e11">B: 2 PackagingMaterial parent classes, each with respective PackagingRawMaterialInformation child class</h2>
+<div class="outline-text-2" id="text-org07b2e11">
 </div>
 <ul class="org-ul">
-<li><a id="org58709dd"></a>Example<br />
-<div class="outline-text-4" id="text-org58709dd">
+<li><a id="orgb54289a"></a>Example<br />
+<div class="outline-text-4" id="text-orgb54289a">
 <div class="org-src-container">
 <pre class="src src-xml">    &lt;<span style="color: #82aaff;">packagingMaterialTypeCode</span>&gt;POLYMER_PP&lt;/<span style="color: #82aaff;">packagingMaterialTypeCode</span>&gt;
     &lt;<span style="color: #82aaff;">packagingMaterialCompositionQuantity</span>&gt;10&lt;/&gt;
@@ -263,12 +270,14 @@
 </div>
 </div>
 </li>
-<li><a id="org7ef04bf"></a>Effects:<br />
+<li><a id="org72d63ce"></a>Effects:<br />
 <ul class="org-ul">
-<li><a id="org474a492"></a>Single material is misrepresented as two separate materials.<br /></li>
-<li><a id="orgadfc417"></a>Real weight is misrepresented (and must be, since <code>packagingMaterialCompositionQuantity</code> is mandatory).<br /></li>
-<li><a id="org21c85e7"></a>Redundant repetition of e.g. weight, labelling information.<br />
-<div class="outline-text-6" id="text-org21c85e7">
+<li><a id="orge7bc7a5"></a>Single material is misrepresented as two separate materials.<br /></li>
+<li><a id="org020c90c"></a>Real weight is misrepresented as two weights (and must be, since <code>packagingMaterialCompositionQuantity</code> is mandatory).<br /></li>
+<li><a id="org32410df"></a>Redundant repetition of e.g. weight, labelling information.<br />
+<ul class="org-ul">
+<li><a id="orgd5a5882"></a>This could alert a system to the fact that they refer to the same material.<br />
+<div class="outline-text-7" id="text-orgd5a5882">
 <p>
  <br>
 </p>
@@ -277,22 +286,25 @@
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 </div>
-<div id="outline-container-org1c5de2f" class="outline-2">
-<h2 id="org1c5de2f">1 PackagingMaterial parent class, 2 child CompositeMaterialDetail classes, 2 child PackagingRawMaterialInformation classes</h2>
-<div class="outline-text-2" id="text-org1c5de2f">
+<div id="outline-container-org8b7c742" class="outline-2">
+<h2 id="org8b7c742">C: 1 PackagingMaterial parent class, 2 child CompositeMaterialDetail classes, 2 child PackagingRawMaterialInformation classes</h2>
+<div class="outline-text-2" id="text-org8b7c742">
 </div>
 <ul class="org-ul">
-<li><a id="org4034f55"></a>Example<br />
-<div class="outline-text-4" id="text-org4034f55">
+<li><a id="orgdfeaf9a"></a>Example<br />
+<div class="outline-text-4" id="text-orgdfeaf9a">
 <div class="org-src-container">
 <pre class="src src-xml">  &lt;<span style="color: #82aaff;">packagingMaterialTypeCode</span>&gt;COMPOSITE&lt;/&gt;
+  &lt;<span style="color: #82aaff;">packagingMaterialCompositionQuantity</span>&gt;10&lt;/&gt;
   &lt;<span style="color: #82aaff;">packagingLabellingTypeCode</span>&gt;Label on packaging&lt;/&gt;
   &lt;<span style="color: #82aaff;">packagingLabellingCoveragePercentage</span>&gt;60&lt;/&gt;
   &lt;<span style="color: #82aaff;">CompositeMaterialDetail</span>&gt;
     &lt;<span style="color: #82aaff;">packagingMaterialTypeCode</span>&gt;POLYMER_PP&lt;/&gt;
-    &lt;<span style="color: #82aaff;">CompositionQuantity</span>&gt;10&lt;/&gt;
-    &lt;<span style="color: #82aaff;">ColorCodeReference</span>&gt;BLK&lt;/&gt;
+    <span style="color: #626262;">&lt;!-- </span><span style="color: #626262;">&lt;packagingMaterialCompositionQuantity&gt;10&lt;/&gt;</span><span style="color: #626262;"> --&gt;</span>
+    &lt;<span style="color: #82aaff;">packagingMaterialColorCodeReference</span>&gt;BLK&lt;/&gt;
       &lt;<span style="color: #82aaff;">PackagingRawMaterialInformation</span>&gt;
       &lt;<span style="color: #82aaff;">packagingRawMaterialCode</span>&gt;Crude oil&lt;/&gt;
       &lt;<span style="color: #82aaff;">packagingRawMaterialPercentage</span>&gt;40&lt;/&gt;
@@ -300,7 +312,7 @@
   &lt;/<span style="color: #82aaff;">CompositeMaterialDetail</span>&gt;
   &lt;<span style="color: #82aaff;">CompositeMaterialDetail</span>&gt;
     &lt;<span style="color: #82aaff;">packagingMaterialTypeCode</span>&gt;POLYMER_PP&lt;/&gt;
-    &lt;<span style="color: #82aaff;">packagingMaterialCompositionQuantity</span>&gt;10&lt;/&gt;
+    <span style="color: #626262;">&lt;!-- </span><span style="color: #626262;">&lt;packagingMaterialCompositionQuantity&gt;10&lt;/&gt;</span><span style="color: #626262;"> --&gt;</span>
     &lt;<span style="color: #82aaff;">packagingMaterialColorCodeReference</span>&gt;CLEAR&lt;/&gt;
       &lt;<span style="color: #82aaff;">PackagingRawMaterialInformation</span>&gt;
       &lt;<span style="color: #82aaff;">packagingRawMaterialCode</span>&gt;Recycled&lt;/&gt;
@@ -311,38 +323,49 @@
 </div>
 </div>
 </li>
-<li><a id="org5123b0c"></a>Effect:<br />
+<li><a id="org3513584"></a>Effect:<br />
 <ul class="org-ul">
-<li><a id="org4cf01c9"></a>The most expressive solution, but &#x2026;<br /></li>
-<li><a id="orge049f89"></a><code>CompositeMaterialDetail</code> class will need to be brought into Swedish TII.<br /></li>
-<li><a id="orge9dff6e"></a>Same material must be populated for each composite material (which would allow a system to detect that it is one and the same material).<br /></li>
-<li><a id="org4d2f8d5"></a>Weight must be filled in for each composite material due to VR 1025 (which we could opt out of).<br /></li>
+<li><a id="org421a548"></a>The most expressive solution, but &#x2026;<br /></li>
+<li><a id="orgc24505f"></a><code>CompositeMaterialDetail</code> class will need to be brought into Swedish TII.<br /></li>
+<li><a id="org2951f2a"></a>Same <code>material</code> must be populated for each composite material<br />
+<ul class="org-ul">
+<li><a id="orge8d282b"></a>&#x2026; allowing a system to e.g. detect that it is one and the same material.<br /></li>
+</ul>
+</li>
+<li><a id="orge88e23a"></a>Weight need not be filled in for each composite material since VR 1025 does not apply.<br /></li>
+<li><a id="orgfb3903d"></a>If <code>Packaging</code> module is expected to be further developed, it may make sense to start making fuller use of it.<br /></li>
 </ul>
 </li>
 </ul>
-<li><a id="org5f2088c"></a>Frågor till Ica:<br />
+</div>
+<div id="outline-container-org2d569f4" class="outline-2">
+<h2 id="org2d569f4">General comments</h2>
+<div class="outline-text-2" id="text-org2d569f4">
+</div>
 <ul class="org-ul">
-<li><a id="org2e8eb9c"></a>Spelar vikten för de individuella ramaterialen roll för Ica?<br /></li>
-<li><a id="org3f28b2c"></a>Är det ens möjligt att avgöra vad respektive material väger?<br /></li>
-
-<li><a id="org53bbad5"></a>Logik: samma materialCode, samma vikt -&gt; läs in vikt endast en gang<br /></li>
-
-<li><a id="org6741185"></a>Det gar att skicka en och samma material med &gt;1 ramaterial<br /></li>
-<li><a id="orgc8b98bf"></a>Men det gar inte att skicka ovan med tva olika farger, utan att använda klassen compositeMaterial.<br /></li>
-<li><a id="orgcbc554f"></a>Kan de vara utan uppgift om färg<br /></li>
-
-<li><a id="orge077108"></a>I princip: Sa länge Ica och leverantören kan tolka varandra rätt, och ingen uppgift saknas, sa behöver ingen göra nagonting.<br /></li>
-
-<li><a id="org61ab012"></a>Men svart att rekommendera nagot utan att veta hur de slutliga kraven kommer att se ut.<br /></li>
-</ul>
+<li><a id="orgfe3e3e4"></a>To the extent possible, build your TII registration UIs as close to XML schema as possible.<br /></li>
+<li><a id="org73284e8"></a>If schema does not currently allow you to express what you want to express, either:<br />
+<div class="outline-text-4" id="text-org73284e8">
+<ol class="org-ol">
+<li>It can be modified (requires broad agreement in all of GDSN)</li>
+<li>Or it can be worked around in your own system(s) by:
+<ul class="org-ul">
+<li>Agreeing with your users on how you want to do things</li>
+<li>And applying the appropriate logic in your systems.</li>
+</ul></li>
+</ol>
+</div>
 </li>
+<li><a id="orgf98c426"></a>In principle: As long as Ica and suppler understand one another, no one necessarily needs to do anything.<br /></li>
+
+<li><a id="org5fc665f"></a>But difficult to make recommendations without knowing final overall requirements.<br /></li>
 </ul>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2023-10-13 Fri 00:00</p>
 <p class="author">Author: Nathan Stonewall</p>
-<p class="date">Created: 2023-10-13 Fri 15:53</p>
+<p class="date">Created: 2023-10-13 Fri 17:17</p>
 </div>
 </body>
 </html>
