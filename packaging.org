@@ -92,7 +92,7 @@
   </CompositeMaterialDetail>
 #+END_SRC
 
-*** Effect:
+*** Effects:
 ***** The most expressive solution, but ...
 ***** ~CompositeMaterialDetail~ class will need to be brought into Swedish TII.
 ***** Same ~material~ must be populated for each composite material
