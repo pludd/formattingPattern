@@ -1,0 +1,109 @@
+#+title: Packaging material
+#+author: Nathan Stonewall
+#+email: nathan.stonewall@gs1.se
+#+date: <2023-10-13 Fri>
+#+OPTIONS: H:1 num:nil toc:nil \n author:Nathan Stonewall date:2023-09-15 d:(not "HORSE")
+# #+TOC: headlines 1
+#+MACRO: NEWLINE @@latex:\\@@ @@html:<br>@@
+#+HTML_HEAD: <style type="text/css">body{ max-width:80%; margin: auto;} .custom-list { margin-bottom: 50px; }</style>
+
+{{{NEWLINE}}}
+
+* 1 PackagingMaterial parent class, 2 child PackagingRawMaterialInformation classes
+*** Example
+#+BEGIN_SRC xml
+    <packagingMaterialTypeCode>POLYMER_PP</packagingMaterialTypeCode>
+    <packagingMaterialCompositionQuantity>10</>
+    <packagingMaterialcolourCodeReference>BLK</>
+    <packagingLabellingTypeCode>Label on package</>
+    <packagingLabellingCoveragePercentage>60</>
+    <PackagingRawMaterialInformation>
+      <packagingRawMaterialCode>Crude oil</>
+      <packagingRawMaterialPercentage>40</>
+      <packagingRawMaterialCode>Recycled</>
+      <packagingRawMaterialPercentage>60</>
+    </PackagingRawMaterialInformation>
+#+END_SRC
+*** Effect: Not possible to provide ~packagingMaterialColourCodeReference~ per ~packagingRawMaterialCode~.
+
+
+{{{NEWLINE}}}
+
+
+* 2 PackagingMaterial parent class, each with respective PackagingRawMaterialInformation child class
+*** Example
+#+BEGIN_SRC xml
+    <packagingMaterialTypeCode>POLYMER_PP</packagingMaterialTypeCode>
+    <packagingMaterialCompositionQuantity>10</>
+    <packagingMaterialcolourCodeReference>BLK</>
+    <packagingLabellingTypeCode>Label on package</>
+    <packagingLabellingCoveragePercentage>60</>
+    <PackagingRawMaterialInformation>
+      <packagingRawMaterialCode>Crude oil</>
+      <packagingRawMaterialPercentage>40</>
+    </PackagingRawMaterialInformation>
+    <packagingMaterialTypeCode>POLYMER_PP</packagingMaterialTypeCode>
+    <packagingMaterialCompositionQuantity>10</>
+    <packagingMaterialcolourCodeReference>CLEAR</>
+    <packagingLabellingTypeCode>Label on package</>
+    <packagingLabellingCoveragePercentage>60</>
+    <PackagingRawMaterialInformation>
+      <packagingRawMaterialCode>Recycled</>
+      <packagingRawMaterialPercentage>60</>
+    </PackagingRawMaterialInformation>
+#+END_SRC
+
+*** Effects:
+***** Representing a single material as two separate materials
+***** Real weight is misrepresented (and must be, since ~packagingMaterialCompositionQuantity~ is mandatory)
+***** Redundant repetition of e.g. weight, labelling information.
+
+
+{{{NEWLINE}}}
+
+* 1 PackagingMaterial parent class, 2 child CompositeMaterialDetail classes, 2 child PackagingRawMaterialInformation classes
+*** Example
+
+#+BEGIN_SRC xml
+  <packagingMaterialTypeCode>COMPOSITE</>
+  <packagingLabellingTypeCode>Label on packaging</>
+  <packagingLabellingCoveragePercentage>60</>
+  <CompositeMaterialDetail>
+    <packagingMaterialTypeCode>POLYMER_PP</>
+    <CompositionQuantity>10</>
+    <ColorCodeReference>BLK</>
+      <PackagingRawMaterialInformation>
+      <packagingRawMaterialCode>Crude oil</>
+      <packagingRawMaterialPercentage>40</>
+      </PackagingRawMaterialInformation>
+  </CompositeMaterialDetail>
+  <CompositeMaterialDetail>
+    <packagingMaterialTypeCode>POLYMER_PP</>
+    <packagingMaterialCompositionQuantity>10</>
+    <packagingMaterialColorCodeReference>CLEAR</>
+      <PackagingRawMaterialInformation>
+      <packagingRawMaterialCode>Recycled</>
+      <packagingRawMaterialPercentage>60</>
+      </PackagingRawMaterialInformation>
+  </CompositeMaterialDetail>
+#+END_SRC
+
+*** Effect:
+***** The most expressive solution, but ...
+***** ~CompositeMaterialDetail~ class will need to be brought into Swedish TII.
+***** Same material must be populated for each composite material (which would allow a system to detect that it is one and the same material).
+***** Weight must be filled in for each composite material due to VR 1025 (which we could opt out of).
+
+
+
+*** Spelar vikten för de individuella ramaterialen roll för Ica?
+*** Är det ens möjligt att avgöra vad respektive material väger?
+*** Logik: samma materialCode, samma vikt -> läs in vikt endast en gang
+
+*** Det gar att skicka en och samma material med >1 ramaterial
+*** Men det gar inte att skicka ovan med tva olika farger, utan att använda klassen compositeMaterial.
+*** Kan de vara utan uppgift om färg
+
+*** I princip: Sa länge Ica och leverantören kan tolka varandra rätt, och ingen uppgift saknas, sa behöver ingen göra nagonting.
+
+*** Men svart att rekommendera nagot utan att veta hur de slutliga kraven kommer att se ut.
