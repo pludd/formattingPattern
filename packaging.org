@@ -112,11 +112,11 @@
 {{{NEWLINE}}}
 
 * General comments
-*** As long as ICA and suppler understand one another, no one necessarily needs to do anything.
+*** As long as ICA and supplier understand one another, no one necessarily needs to do anything.
 *** But difficult to make recommendations without knowing final overall requirements.
 
 * Tips for UI and system architecture
-*** To the extent possible, build your UI as close to XML schema as possible.
+*** Build your UI as close to XML schema as possible.
 *** Do not abstract away details merely because they do not seem needed today.
 *** If schema does not allow you to express what you want to express, either:
 a. It can be modified

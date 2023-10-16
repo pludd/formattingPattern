@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-10-15 Sun 21:47 -->
+<!-- 2023-10-16 Mon 09:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Packaging material</title>
@@ -201,9 +201,9 @@
 <p>
  <br>
 </p>
-<div id="outline-container-org5050289" class="outline-2">
-<h2 id="org5050289"><b>Option A</b></h2>
-<div class="outline-text-2" id="text-org5050289">
+<div id="outline-container-org8b35953" class="outline-2">
+<h2 id="org8b35953"><b>Option A</b></h2>
+<div class="outline-text-2" id="text-org8b35953">
 <p>
 <i>Note: Options are rendered as XML, but UI representation should be similar.</i>
 </p>
@@ -213,8 +213,8 @@
 </p>
 </div>
 <ul class="org-ul">
-<li><a id="org6852f2f"></a>Example<br />
-<div class="outline-text-4" id="text-org6852f2f">
+<li><a id="org676e7dc"></a>Example<br />
+<div class="outline-text-4" id="text-org676e7dc">
 <div class="org-src-container">
 <pre class="src src-xml">    &lt;<span style="color: #82aaff;">packagingMaterialTypeCode</span>&gt;POLYMER_PP&lt;/&gt;
     &lt;<span style="color: #82aaff;">packagingMaterialCompositionQuantity</span>&gt;10&lt;/&gt;
@@ -231,12 +231,12 @@
 </div>
 </div>
 </li>
-<li><a id="org2f69f88"></a>Effects<br />
+<li><a id="org9d9bc59"></a>Effects<br />
 <ul class="org-ul">
-<li><a id="orgaef8b7c"></a>Possible to send one <code>packagingMaterialTypeCode</code> with &gt;1 <code>packagingRawMaterialCode</code> .<br /></li>
-<li><a id="org1e6faf2"></a>Not possible to send above with &gt;1 color.<br /></li>
-<li><a id="orgf58eabd"></a>1 <code>packagingMaterialTypeCode</code> instance = 1 <code>packagingMaterialColourCodeReference</code> instance.<br />
-<div class="outline-text-6" id="text-orgf58eabd">
+<li><a id="orge20d4a1"></a>Possible to send one <code>packagingMaterialTypeCode</code> with &gt;1 <code>packagingRawMaterialCode</code> .<br /></li>
+<li><a id="orgdab1611"></a>Not possible to send above with &gt;1 color.<br /></li>
+<li><a id="org5b3f8cc"></a>1 <code>packagingMaterialTypeCode</code> instance = 1 <code>packagingMaterialColourCodeReference</code> instance.<br />
+<div class="outline-text-6" id="text-org5b3f8cc">
 <p>
  <br>
 </p>
@@ -246,16 +246,16 @@
 </li>
 </ul>
 </div>
-<div id="outline-container-org321a659" class="outline-2">
-<h2 id="org321a659"><b>Option B</b></h2>
-<div class="outline-text-2" id="text-org321a659">
+<div id="outline-container-org08df05a" class="outline-2">
+<h2 id="org08df05a"><b>Option B</b></h2>
+<div class="outline-text-2" id="text-org08df05a">
 <p>
 2 <code>PackagingMaterial</code> parent classes, each with respective <code>PackagingRawMaterialInformation</code> child class
 </p>
 </div>
 <ul class="org-ul">
-<li><a id="org73279ec"></a>Example<br />
-<div class="outline-text-4" id="text-org73279ec">
+<li><a id="org0ce53f3"></a>Example<br />
+<div class="outline-text-4" id="text-org0ce53f3">
 <div class="org-src-container">
 <pre class="src src-xml">    &lt;<span style="color: #82aaff;">packagingMaterialTypeCode</span>&gt;POLYMER_PP&lt;/&gt;
     &lt;<span style="color: #82aaff;">packagingMaterialCompositionQuantity</span>&gt;10&lt;/&gt;
@@ -280,18 +280,18 @@
 </div>
 </div>
 </li>
-<li><a id="org229791b"></a>Effects<br />
+<li><a id="org9fe2f47"></a>Effects<br />
 <ul class="org-ul">
-<li><a id="org179358f"></a>Single material is misrepresented as two separate materials.<br /></li>
-<li><a id="orgd519123"></a>Real weight is misrepresented as two weights<br />
+<li><a id="org6ce6b73"></a>Single material is misrepresented as two separate materials.<br /></li>
+<li><a id="org62dde2b"></a>Real weight is misrepresented as two weights<br />
 <ul class="org-ul">
-<li><a id="org7f43360"></a>And must be, since <code>packagingMaterialCompositionQuantity</code> is mandatory.<br /></li>
+<li><a id="orga0e0d25"></a>And must be, since <code>packagingMaterialCompositionQuantity</code> is mandatory.<br /></li>
 </ul>
 </li>
-<li><a id="org654c6a7"></a>Redundant repetition of e.g. weight, labelling information.<br />
+<li><a id="org84baf9f"></a>Redundant repetition of e.g. weight, labelling information.<br />
 <ul class="org-ul">
-<li><a id="orgc95160c"></a>This could tell a system that they refer to one and the same packaging element.<br />
-<div class="outline-text-7" id="text-orgc95160c">
+<li><a id="org27d0c61"></a>This could tell a system that they refer to one and the same packaging element.<br />
+<div class="outline-text-7" id="text-org27d0c61">
 <p>
  <br>
 </p>
@@ -303,16 +303,16 @@
 </li>
 </ul>
 </div>
-<div id="outline-container-org6c5aa34" class="outline-2">
-<h2 id="org6c5aa34"><b>Option C</b></h2>
-<div class="outline-text-2" id="text-org6c5aa34">
+<div id="outline-container-org959275a" class="outline-2">
+<h2 id="org959275a"><b>Option C</b></h2>
+<div class="outline-text-2" id="text-org959275a">
 <p>
 1 <code>PackagingMaterial</code> parent class, 2 child <code>CompositeMaterialDetail</code> classes, each with respective child <code>PackagingRawMaterialInformation</code> class
 </p>
 </div>
 <ul class="org-ul">
-<li><a id="org9d86161"></a>Example<br />
-<div class="outline-text-4" id="text-org9d86161">
+<li><a id="org70d66b2"></a>Example<br />
+<div class="outline-text-4" id="text-org70d66b2">
 <div class="org-src-container">
 <pre class="src src-xml">  &lt;<span style="color: #82aaff;">packagingMaterialTypeCode</span>&gt;COMPOSITE&lt;/&gt;
   &lt;<span style="color: #82aaff;">packagingMaterialCompositionQuantity</span>&gt;10&lt;/&gt;
@@ -341,17 +341,17 @@
 </div>
 </div>
 </li>
-<li><a id="orge8299ce"></a>Effects<br />
+<li><a id="org146aca8"></a>Effects<br />
 <ul class="org-ul">
-<li><a id="orgf5f0c0f"></a>The most expressive solution, but &#x2026;<br /></li>
-<li><a id="org4a6a3dc"></a>Same <code>packagingMaterialTypeCode</code> must be populated for each composite material<br />
+<li><a id="org1540d2f"></a>The most expressive solution, but &#x2026;<br /></li>
+<li><a id="org0f9a881"></a>Same <code>packagingMaterialTypeCode</code> must be populated for each composite material<br />
 <ul class="org-ul">
-<li><a id="org04ddd63"></a>This could tell a system that they refer to one and the same packaging element.<br /></li>
+<li><a id="orgabb7267"></a>This could tell a system that they refer to one and the same packaging element.<br /></li>
 </ul>
 </li>
-<li><a id="orgc0ff9d3"></a><code>packagingMaterialCompositionQuantity</code> (weight) need not be filled in for each composite material since VR 1025 does not apply.<br /></li>
-<li><a id="orga3f6ac8"></a><code>CompositeMaterialDetail</code> class will need to be brought into Swedish TII.<br />
-<div class="outline-text-6" id="text-orga3f6ac8">
+<li><a id="orgcfe2a09"></a><code>packagingMaterialCompositionQuantity</code> (weight) need not be filled in for each composite material since VR 1025 does not apply.<br /></li>
+<li><a id="org507a80a"></a><code>CompositeMaterialDetail</code> class will need to be brought into Swedish TII.<br />
+<div class="outline-text-6" id="text-org507a80a">
 <p>
  <br>
 </p>
@@ -361,24 +361,24 @@
 </li>
 </ul>
 </div>
-<div id="outline-container-orga02a33d" class="outline-2">
-<h2 id="orga02a33d">General comments</h2>
-<div class="outline-text-2" id="text-orga02a33d">
+<div id="outline-container-orgb1c0afa" class="outline-2">
+<h2 id="orgb1c0afa">General comments</h2>
+<div class="outline-text-2" id="text-orgb1c0afa">
 </div>
 <ul class="org-ul">
-<li><a id="org10aa33c"></a>As long as ICA and suppler understand one another, no one necessarily needs to do anything.<br /></li>
-<li><a id="orgdcc72c2"></a>But difficult to make recommendations without knowing final overall requirements.<br /></li>
+<li><a id="org24618e9"></a>As long as ICA and suppler understand one another, no one necessarily needs to do anything.<br /></li>
+<li><a id="org6faa6d6"></a>But difficult to make recommendations without knowing final overall requirements.<br /></li>
 </ul>
 </div>
-<div id="outline-container-org071a5ce" class="outline-2">
-<h2 id="org071a5ce">Tips for UI and system architecture</h2>
-<div class="outline-text-2" id="text-org071a5ce">
+<div id="outline-container-org1e0272e" class="outline-2">
+<h2 id="org1e0272e">Tips for UI and system architecture</h2>
+<div class="outline-text-2" id="text-org1e0272e">
 </div>
 <ul class="org-ul">
-<li><a id="org12d7a06"></a>To the extent possible, build your UI as close to XML schema as possible.<br /></li>
-<li><a id="org533dc06"></a>Do not abstract away details merely because they do not seem needed today.<br /></li>
-<li><a id="org303a604"></a>If schema does not allow you to express what you want to express, either:<br />
-<div class="outline-text-4" id="text-org303a604">
+<li><a id="orgb2876c2"></a>To the extent possible, build your UI as close to XML schema as possible.<br /></li>
+<li><a id="orgab2d11f"></a>Do not abstract away details merely because they do not seem needed today.<br /></li>
+<li><a id="org7e232ad"></a>If schema does not allow you to express what you want to express, either:<br />
+<div class="outline-text-4" id="text-org7e232ad">
 <ol class="org-ol">
 <li>It can be modified
 <ul class="org-ul">
@@ -403,7 +403,7 @@
 <div id="postamble" class="status">
 <p class="date">Date: 2023-10-13 Fri 00:00</p>
 <p class="author">Author: Nathan Stonewall</p>
-<p class="date">Created: 2023-10-15 Sun 21:47</p>
+<p class="date">Created: 2023-10-16 Mon 09:33</p>
 </div>
 </body>
 </html>
