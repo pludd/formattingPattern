@@ -12,7 +12,7 @@
 * *43 Formatting for Descriptions*
 This section deals with the usage of attributes that are of data type ~Description~.
 
-There are five types of descriptions:
+There are five types of ~Descriptions~:
 
 (...)
 
