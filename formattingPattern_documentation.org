@@ -81,7 +81,7 @@ BBCode offers a more extensive range of formatting tools than is presented in th
 *** *43.6.2 The reason for the design*
 BBCode is recommended as the means to send styled trade item information using data type ~Formatted Description~, principally for security reasons. Allowing raw HTML code in trade item information exposes systems to injection attacks, while BBCode carries no such risks. In addition, the BBCode implementation places responsibility for interpretation of styled trade item information on the data recipient, who can choose to what extent it wishes to allow styled trade item information from their data source.
 
-As the following examples illustrate, ~Formatted Description~ data type leverages the ~@formattingPattern~ XML attribute. All styled trade item information should be stored in ~@formattingPattern~, while its corresponding unstyled (plain text) information should be stored in its parent XML element.
+As the examples that follow illustrate, ~Formatted Description~ data type leverages the ~@formattingPattern~ XML attribute. All styled trade item information should be stored in ~@formattingPattern~, while its corresponding unstyled (plain text) information should be stored in its parent XML element.
 
 With respect to the content of ~Formatted Description~ attributes, it is good practice to provide the same information at attribute level (styled) as at element level (plain text). See examples *43.6.4* and *43.6.5*.
 
