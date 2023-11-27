@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-11-27 Mon 14:14 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Formatting Pattern TIIG updates</title>
+<meta name="author" content="Nathan Stonewall" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">body{ max-width:80%; margin: auto;} .custom-list { margin-bottom: 50px; }</style>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://fniessen.github.io/org-html-themes/src/readtheorg_theme/js/readtheorg.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Formatting Pattern TIIG updates</h1>
+<div id="outline-container-org1ed7831" class="outline-2">
+<h2 id="org1ed7831"><b>43 Formatting for Descriptions</b></h2>
+<div class="outline-text-2" id="text-org1ed7831">
+<p>
+This section deals with the usage of attributes that are of data type <code>Description</code>.<br />
+</p>
+
+<p>
+There are five types of descriptions:<br />
+</p>
+
+<p>
+(&#x2026;)<br />
+</p>
+
+<ul class="org-ul">
+<li><code>Formatted Descriptions</code> that allow (one/multiple) value(s) per language. In addition, enable user to enhance the visual presentation of their information using rich text styling, such as ordered lists, hyperlinks, and formatted text.<br /></li>
+</ul>
+
+<p>
+(&#x2026;)<br />
+</p>
+</div>
+<ul class="org-ul">
+<li><a id="org48aba47"></a><b>43.3 Formatted Description, one value per language (multiple languages allowed)</b><br />
+<ul class="org-ul">
+<li><a id="orgcae42c4"></a>How do I use <code>Formatted Description</code> to state that an item has components? For example, a bag of various candy bars, each of which has different properties that must be expressed in a <code>Description</code> field.<br />
+<div class="outline-text-4" id="text-orgcae42c4">
+<p>
+Use a BBCode list:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-nil">[list]
+[*] Component 1: Description of Component 1
+[*] Component 2: Description of Component 2
+[*] Component 3: Description of Component 3
+[/list]
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgd1b3802"></a>How do I represent a new line?<br />
+<div class="outline-text-4" id="text-orgd1b3802">
+<p>
+Use a BBCode line break:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-nil">Some text here. [br] This text begins a new line.
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org99796e3"></a>How do I represent a new paragraph?<br />
+<div class="outline-text-4" id="text-org99796e3">
+<p>
+Use a BBCode double line break:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-nil">Some text here. [br][br] This text begins a new paragraph.
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgd62a3e6"></a>How do I format text?<br />
+<div class="outline-text-4" id="text-orgd62a3e6">
+<p>
+Use appropriate BBCode formatting tags (see &ldquo;BBCode Syntax&rdquo; at section <b>43.6.3</b>):<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-nil">Some [b]bold text[/b] here.
+[br] This text begins a new line.
+Some [i]italicized text[/i] here.
+A simple list here: [br] [list]
+[*]First list item
+[*]Second list item
+[/list]
+</pre>
+</div>
+</div>
+</li>
+<li><a id="org2e5995b"></a>Should I use <code>@sequenceNumber</code>?<br />
+<div class="outline-text-4" id="text-org2e5995b">
+<p>
+In general, no. Use an appropriate BBCode list instead.<br />
+</p>
+</div>
+</li>
+</ul>
+</li>
+<li><a id="org43d19b7"></a><b>43.4 Formatted Description, multiple values per language (multiple languages allowed)</b><br />
+<div class="outline-text-3" id="text-org43d19b7">
+<p>
+The same parameters and recommendations apply as in the previous section <b>43.3</b>.<br />
+</p>
+
+<p>
+When using <code>Formatted Description</code>, consider carefully whether it is necessary to send multiple values in one and the same language. If possible, use BBCode formatting capabilities to provide all information in one value. This will allow systems tasked with handling the information to do so more gracefully.<br />
+</p>
+</div>
+</li>
+<li><a id="org802d5ba"></a><b>43.5 Description one value, one language</b><br />
+<div class="outline-text-3" id="text-org802d5ba">
+<p>
+<i>Note to GDSN: Consider deleting if no longer relevant?</i><br />
+</p>
+</div>
+</li>
+<li><a id="orgcbc371f"></a><b>43.6 Formatting Pattern Examples</b><br />
+<ul class="org-ul">
+<li><a id="org7802751"></a><b>43.6.1 Formatted Descriptions</b><br />
+<div class="outline-text-4" id="text-org7802751">
+<p>
+The Standard leverages <i>BBCode</i> to enable styling of trade item information. BBCode offers a simple framework for text and document formatting that is similar to HTML.<br />
+</p>
+
+<p>
+BBCode offers a more extensive range of formatting tools than is presented in this document. To simplify implementation, this document recommends the use of only a subset of BBCode. In principle however, breadth of implementation may be agreed upon between trading partners according to their needs.<br />
+</p>
+</div>
+</li>
+<li><a id="orgdc486dc"></a><b>43.6.2 The reason for the design</b><br />
+<div class="outline-text-4" id="text-orgdc486dc">
+<p>
+BBCode is recommended as the means to send styled trade item information using data type <code>Formatted Description</code>, principally for security reasons. Allowing raw HTML code in trade item information exposes systems to injection attacks, while BBCode carries no such risks. In addition, the BBCode implementation places responsibility for interpretation of styled trade item information on the data recipient, who can choose to what extent it wishes to allow styled trade item information from their data source.<br />
+</p>
+
+<p>
+As the following examples illustrate, <code>Formatted Description</code> data type leverages the <code>@formattingPattern</code> XML attribute. All styled trade item information should be stored in <code>@formattingPattern</code>, while unstyled (plain text) information should be stored in its parent XML element.<br />
+</p>
+
+<p>
+With respect to the content of <code>Formatted Description</code> attributes, it is good practice to provide the same information at attribute level (styled) as at element level (plain text). See examples <b>43.6.4</b> and <b>43.6.5</b>.<br />
+</p>
+</div>
+</li>
+<li><a id="org273d424"></a><b>43.6.3 BBCode syntax</b><br />
+<div class="outline-text-4" id="text-org273d424">
+<p>
+<b>Text formatting</b><br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Operation</th>
+<th scope="col" class="org-left">BBCode tag</th>
+<th scope="col" class="org-left">Tag must be closed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Bold</td>
+<td class="org-left">[b]</td>
+<td class="org-left">Yes</td>
+</tr>
+
+<tr>
+<td class="org-left">Italic</td>
+<td class="org-left">[i]</td>
+<td class="org-left">Yes</td>
+</tr>
+
+<tr>
+<td class="org-left">Underline</td>
+<td class="org-left">[u]</td>
+<td class="org-left">Yes</td>
+</tr>
+
+<tr>
+<td class="org-left">Font-size</td>
+<td class="org-left">[size={number}]</td>
+<td class="org-left">Yes</td>
+</tr>
+
+<tr>
+<td class="org-left">Font-color</td>
+<td class="org-left">[color={color}]</td>
+<td class="org-left">Yes</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<b>Structural formatting</b><br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Operation</th>
+<th scope="col" class="org-left">BBCode tag</th>
+<th scope="col" class="org-left">Tag must be closed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Header (level 1)</td>
+<td class="org-left">[h1]</td>
+<td class="org-left">Yes</td>
+</tr>
+
+<tr>
+<td class="org-left">Header (level 2)</td>
+<td class="org-left">[h2]</td>
+<td class="org-left">Yes</td>
+</tr>
+
+<tr>
+<td class="org-left">Line break</td>
+<td class="org-left">[br]</td>
+<td class="org-left">No</td>
+</tr>
+
+<tr>
+<td class="org-left">Align left</td>
+<td class="org-left">[left]</td>
+<td class="org-left">Yes</td>
+</tr>
+
+<tr>
+<td class="org-left">Align right</td>
+<td class="org-left">[right]</td>
+<td class="org-left">Yes</td>
+</tr>
+
+<tr>
+<td class="org-left">Align center</td>
+<td class="org-left">[center]</td>
+<td class="org-left">Yes</td>
+</tr>
+
+<tr>
+<td class="org-left">Unordered list</td>
+<td class="org-left">[list]</td>
+<td class="org-left">Yes</td>
+</tr>
+
+<tr>
+<td class="org-left">Numbered list</td>
+<td class="org-left">[list=1]</td>
+<td class="org-left">Yes</td>
+</tr>
+
+<tr>
+<td class="org-left">List item</td>
+<td class="org-left">[*]</td>
+<td class="org-left">No</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<b>Other formatting</b><br />
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Operation</th>
+<th scope="col" class="org-left">BBCode tag</th>
+<th scope="col" class="org-left">Tag must be closed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Link</td>
+<td class="org-left">[url]{url here}</td>
+<td class="org-left">Yes</td>
+</tr>
+
+<tr>
+<td class="org-left">Named link</td>
+<td class="org-left">[url={url here}]{link name}</td>
+<td class="org-left">Yes</td>
+</tr>
+
+<tr>
+<td class="org-left">Insert image</td>
+<td class="org-left">[img]{url}</td>
+<td class="org-left">Yes</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+ <br><br />
+</p>
+</div>
+</li>
+<li><a id="orge9cee33"></a><b>43.6.4 Simple Example: String with formatted text elements</b><br />
+<div class="outline-text-4" id="text-orge9cee33">
+<p>
+Content:<br />
+</p>
+
+<p>
+This string contains a <b>bold</b> substring and a link to a <a href="https://www.mywebsite.com">website</a>.<br />
+</p>
+
+<p>
+XML representation:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-XML">&lt;tradeItemMarketingMessage formattingPattern="This string contains a [b]bold[/b] substring and a link to a [url={www.mywebsite.com}]website[/url]."&gt;
+This string contains a bold substring and a link to a website.&lt;/tradeItemMarketingMessage&gt;
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orgf13f3fb"></a><b>43.6.5 Complex Example: Styled ingredients list:</b><br />
+<div class="outline-text-4" id="text-orgf13f3fb">
+<p>
+Content:<br />
+</p>
+
+
+<ul class="org-ul">
+<li><b>5 X Pickled Onion Flavour Baked Corn Snack. Ingredients:</b> Maize, Vegetable Oil, Pickled Onion Flavour, Acidity Regulator (Sodium Diacetate), <b>Lactose (from Milk)</b>, Onion Powder, Flavourings, Citric Acid, Acetic Acid, <b>Wheat Rusk, Hydrolysed Soya Protein (contains Wheat)</b>, Flavour Enhancers (Monosodium Glutamate, Disodium 5’ribonucleotide), Fructose, <b>Celery Seed Oil</b>, Mustard Seed Oil, Colours (Sulphite Ammonia Caramel), Salt, Potassium Chloride, <b>Wheat Flour</b>.<br /></li>
+
+<li><b>4 X Flamin’ Hot Flavour Baked Corn Snack. Ingredients:</b> Maize, Vegetable Oil, Flamin Hot Flavour, <b>Hydrolysed Soya Protein</b>, Fructose, Flavourings, <b>Lactose (from Milk)</b>, Glucose Syrup, Flavour Enhancers (Monosodium Glutamate, Disodium 5’ribonucleotide), Acidity Regulator (Sodium Diacetate), Citric Acid, Tartaric Acid, <b>Wheat Rusk</b>, Sugar, Malic Acid, <b>Celery Seed Oil, Mustard Seed Oil</b>, Colours (<b>Sulphite Ammonia Caramel (from Wheat)</b>, Paprika Extract, <b>Curcumin (from Wheat)</b>, Salt, Potassium Chloride, Wheat Flour.<br /></li>
+</ul>
+
+<p>
+XML representation:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-XML">&lt;ingredientStatement formattingPattern="
+[list]
+[*]
+[b]5 X Pickled Onion Flavour Baked Corn Snack. Ingredients:[/b] Maize, Vegetable Oil,
+Pickled Onion Flavour, Acidity Regulator (Sodium Diacetate), [b]Lactose (from Milk)[/b],
+Onion Powder, Flavourings, Citric Acid, Acetic Acid, [b]Wheat Rusk, Hydrolysed Soya Protein
+(contains Wheat)[/b], Flavour Enhancers (Monosodium Glutamate, Disodium 5’ribonucleotide),
+Fructose, [b]Celery Seed Oil[/b], Mustard Seed Oil, Colours (Sulphite Ammonia Caramel),
+Salt, Potassium Chloride, [b]Wheat Flour[/b].
+[*]
+[b]4 X Flamin’ Hot Flavour Baked Corn Snack. Ingredients:[b] Maize, Vegetable Oil,
+Flamin Hot Flavour, [b]Hydrolysed Soya Protein[/b], Fructose, Flavourings,
+[b]Lactose (from Milk)[/b], Glucose Syrup, Flavour Enhancers (Monosodium Glutamate,
+Disodium 5’ribonucleotide), Acidity Regulator (Sodium Diacetate), Citric Acid,
+Tartaric Acid, [b]Wheat Rusk[/b], Sugar, Malic Acid, [b]Celery Seed Oil,
+Mustard Seed Oil[/b], Colours ([b]Sulphite Ammonia Caramel (from Wheat)[/b],
+Paprika Extract, [b]Curcumin (from Wheat)[/b], Salt, Potassium Chloride, Wheat Flour.
+[/list]"&gt;
+5 X Pickled Onion Flavour Baked Corn Snack. Ingredients: Maize, Vegetable Oil,
+Pickled Onion Flavour, Acidity Regulator (Sodium Diacetate), Lactose (from Milk),
+Onion Powder, Flavourings, Citric Acid, Acetic Acid, Wheat Rusk, Hydrolysed Soya Protein
+(contains Wheat), Flavour Enhancers (Monosodium Glutamate, Disodium 5’ribonucleotide),
+Fructose, Celery Seed Oil, Mustard Seed Oil, Colours (Sulphite Ammonia Caramel)},
+Salt, Potassium Chloride, Wheat Flour. 4 X Flamin’ Hot Flavour Baked Corn Snack.
+Ingredients: Maize, Vegetable Oil, Flamin Hot Flavour [Hydrolysed Soya Protein,
+Fructose, Flavourings, Lactose (from Milk), Glucose Syrup, Flavour Enhancers
+(Monosodium Glutamate, Disodium 5’ribonucleotide), Acidity Regulator (Sodium Diacetate),
+Citric Acid, Tartaric Acid, Wheat Rusk, Sugar, Malic Acid, Celery Seed Oil,
+Mustard Seed Oil, Colours (Sulphite Ammonia Caramel (from Wheat), Paprika Extract,
+Curcumin (from Wheat), Salt, Potassium Chloride, Wheat Flour.
+&lt;/ingredientStatement&gt;
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2023-11-27 Mon 00:00</p>
+<p class="author">Author: Nathan Stonewall</p>
+<p class="date">Created: 2023-11-27 Mon 14:14</p>
+</div>
+</body>
+</html>
