@@ -9,18 +9,35 @@
 #+HTML_HEAD: <style type="text/css">body{ max-width:80%; margin: auto;} .custom-list { margin-bottom: 50px; }</style>
 #+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
+* General thoughts
+** ~@formattingPattern~ sees no usage in the Nordics.
+** ~@sequenceNumber~ sees little usage in the Nordics. When used, recipients rarely pick it up.
+** There is little chance of recipients implementing anything more complex.
+** Difficult to foresee broad adoption of any solution that provides rich-text capabilities.
+** Suggested solution is therefore presented in "self-defense" so that systems are not exposed to HTML.
+** If/when GDSN is ready for rich text, the solution is there.
+
+* Suggested additional actions
+** Discourage use of ~@sequenceNumber~ and ~@formattingPattern~ according to old framework, with a view toward deprecating these in favor of new ~@formattingPattern~ framework.
+*** (There should be one obvious way to do x in GDSN.)
+** Gauge community appetite to break out rich-text attributes into separate attributes, in order to:
+*** Enable cleaner separation of information in GUIs
+*** Enable e.g. validation that ensures that plain text attribute is always provided
+*** Allow systems to more easily isolate rich text
+**** Such a change could be facilitated by the fact of  ~formattingPattern~'s low adoption.
+
 * *43 Formatting for Descriptions*
 This section deals with the usage of attributes that are of data type ~Description~.
 
-There are five types of ~Descriptions~:
+There are five types of ~Description~:
 
 (...)
 
-- ~Formatted Descriptions~ that allow (one/multiple) value(s) per language. In addition, enable user to enhance the visual presentation of their information using rich text styling, such as ordered lists, hyperlinks, and formatted text.
+- ~Formatted Description~ that allow (one/multiple) value(s) per language. In addition, enable user to alter the visual presentation of their information using rich text styling, such as ordered lists, hyperlinks, and formatted text.
 
 (...)
 
-** *43.3 Formatted Description, one value per language (multiple languages allowed)*
+** *43.3 ~Formatted Description~, one value per language (multiple languages allowed)*
 *** How do I use ~Formatted Description~ to state that an item has components? For example, a bag of various candy bars, each of which has different properties that must be expressed in a ~Description~ field.
  Use a BBCode list:
 #+BEGIN_SRC
@@ -60,8 +77,8 @@ In general, no. Use an appropriate BBCode list instead.
 
 
 
-** *43.4 Formatted Description, multiple values per language (multiple languages allowed)*
-The same parameters and recommendations apply as in the previous section *43.3*.
+** *43.4 ~Formatted Description~, multiple values per language (multiple languages allowed)*
+The same recommendations apply as in previous section *43.3*.
 
 When using ~Formatted Description~, consider carefully whether it is necessary to send multiple values in one and the same language. If possible, use BBCode formatting capabilities to provide all information in one value. This will allow systems tasked with handling the information to do so more gracefully.
 
@@ -71,21 +88,24 @@ When using ~Formatted Description~, consider carefully whether it is necessary t
 
 ** *43.6 Formatting Pattern Examples*
 
-*** *43.6.1 Formatted Descriptions using BBCode*
+*** *43.6.1 ~Formatted Description~ using BBCode*
 
-The Standard leverages /BBCode/ to enable styling of trade item information. BBCode offers a simple framework for text and document formatting that is similar to HTML.
+The Standard leverages /BBCode/ to enable styling of trade item information. BBCode offers a simple framework for text and document formatting that is similar to HTML, but safer for systems to handle.
 
-BBCode offers a more extensive range of formatting tools than is presented in this document. To simplify implementation, this document recommends the use of only a subset of BBCode. In principle however, breadth of implementation may be agreed upon between trading partners according to their needs.
+BBCode offers a more extensive range of formatting tools than is presented in this document. To simplify implementation, this document recommends the use of only a subset of BBCode. In principle however, breadth of implementation may be agreed upon between trading partners.
 
 
 *** *43.6.2 The reason for the design*
-BBCode is recommended as the means to send styled trade item information using data type ~Formatted Description~, principally for security reasons. Allowing raw HTML code in trade item information exposes systems to injection attacks, while BBCode carries no such risks. In addition, the BBCode implementation places responsibility for interpretation of styled trade item information on the data recipient, who can choose to what extent it wishes to allow styled trade item information from their data source.
+BBCode is recommended as the means to send styled trade item information using data type ~Formatted Description~, principally for security reasons. Allowing raw HTML code in trade item information exposes systems to risks related to injection attacks, while BBCode carries no such risks. In addition, the BBCode implementation places responsibility for interpretation of styled trade item information on the data recipient, who can choose to what extent it wishes to allow styled trade item information from their data source.
 
-As the examples that follow illustrate, ~Formatted Description~ data type leverages the ~@formattingPattern~ XML attribute. All styled trade item information should be stored in ~@formattingPattern~, while its corresponding unstyled (plain text) information should be stored in its parent XML element.
+*** *43.6.3 Suggestions for implementing ~Formatted Description~ in GUI-based systems*
+As the examples that follow illustrate, ~Formatted Description~ leverages the ~@formattingPattern~ XML attribute. Styled trade item information (if the user wishes to provide it) should be stored in ~@formattingPattern~, while corresponding plain text information should be stored in its parent XML element. See *43.6.5* and *43.6.6* for sample XML representations.
 
-With respect to the content of ~Formatted Description~ attributes, it is good practice to provide the same information at attribute level (styled) as at element level (plain text). See examples *43.6.4* and *43.6.5*.
+With respect to the content of ~Formatted Description~ attributes, it is good practice to provide the same information at attribute level (styled) as at element level (plain text). This can be accomplished by, for example:
+ - Implementing ~@formattingPattern~ capabilities in an embedded rich text editor in a GUI. If the user chooses to style their information, its plain text equivalent can be generated by stripping all tagging, and then stored in the relevant XML element.
+ - Relying on user to enter plain text information manually, in addition to their styled information. In this scenario, it may be advantageous to expose XML attribute and XML element as distinct entities in a GUI.
 
-*** *43.6.3 BBCode syntax*
+*** *43.6.4 BBCode syntax*
 
  *Text formatting*
 | Operation  | BBCode tag      | Tag must be closed |
@@ -117,7 +137,7 @@ With respect to the content of ~Formatted Description~ attributes, it is good pr
 | Insert image | [img]{url}                  | Yes                |
 
 {{{NEWLINE}}}
-*** *43.6.4 Simple Example: String with formatted text elements*
+*** *43.6.5 Simple Example: String with formatted text elements*
 
 Content:
 
@@ -131,7 +151,7 @@ This string contains a bold substring and a link to a website.</tradeItemMarketi
  #+END_SRC
 
 
-*** *43.6.5 Complex Example: Styled ingredients list*
+*** *43.6.6 Complex Example: Styled ingredients list*
 
 Content:
 
